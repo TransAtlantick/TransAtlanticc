@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Package - TransAtlantic Delivery</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="track.html">Track</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <h1 style="text-align:center; margin-top:20px;">Track Your Package</h1>
+
+    <!-- Tracking Input -->
+    <div style="text-align:center; margin-top:20px;">
+        <input type="text" id="trackingCode" placeholder="Enter Tracking Code">
+        <br><br>
+        <button onclick="trackPackage()">Track</button>
+    </div>
+
+    <!-- Result -->
+    <div id="result" style="margin-top:30px; text-align:center;"></div>
+
+    <script>
+    function trackPackage() {
+        var code = document.getElementById("trackingCode").value.trim().toUpperCase();
+        var result = document.getElementById("result");
+        var today = new Date();
+        var dateString = today.toDateString();
+
+        if (code === "REV23328") {
+            result.innerHTML = `
+            <div>
+                <h3>Shipment Update</h3>
+
+                <!-- STATUS BADGE -->
+                <span style="
+                    display:inline-block;
+                    background:#0077cc;
+                    color:white;
+                    padding:6px 14px;
+                    border-radius:20px;
+                    font-size:14px;
+                    margin-bottom:12px;
+                ">
+                    In Transit
+                </span>
+
+                <p><strong>Date:</strong> ${dateString}</p>
+
+                <p>
+                    Dear <strong>Ronald Evans Whisenant Jr</strong>,<br><br>
+                    Your package is currently <strong>in transit</strong> and moving toward its destination.
+                </p>
+
+                <p><strong>Delivery Address:</strong><br>
+                    844 Ashton 2900, 2800 St<br>
+                    Rock Hill, SC 29730
+                </p>
+
+                <p><strong>Estimated Delivery:</strong> 8–12 Hours</p>
+
+                <h4>Delivery Progress</h4>
+                <ul style="list-style:none; padding-left:0;">
+                    <li>✅ Order Confirmed</li>
+                    <li>✅ Package Picked Up</li>
+                    <li>🔄 In Transit</li>
+                </ul>
+
+                <hr style="margin:20px 0; border:none; height:1px; background:#ccc;">
+
+                <!-- MAP -->
+                <div style="margin-top:20px;">
+                    <h4>Delivery Location</h4>
+                    <iframe
+                        src="https://www.google.com/maps?q=844+Ashton+2900+2800+St+Rock+Hill+SC+29730&output=embed"
+                        width="100%"
+                        height="250"
+                        style="border:0; border-radius:10px;"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+                <p style="font-size:13px; color:#555; margin-top:15px;">
+                    Tracking updates are refreshed automatically based on delivery status.
+                </p>
+            </div>
+            `;
+        } else {
+            result.innerHTML = `
+                <p style="color:red; font-weight:bold;">
+                    Tracking number not found. Please check and try again.
+                </p>
+            `;
+        }
+    }
+    </script>
+
+    <!-- Footer -->
+    <footer>
+        <p>Email: TransAtlantic000@gmail.com | Phone: 5650529789</p>
+        <p>&copy; 2026 TransAtlantic Delivery. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
